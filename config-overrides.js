@@ -27,6 +27,8 @@ module.exports = override(
   // 给文件夹起别名, 因为为了达到assets， 路径非常非常难。这是第二种方法.
    addWebpackAlias({
      '@assets': path.resolve(__dirname, 'src/assets/'),
-     '@': path.resolve(__dirname, 'src/')
+     '@': path.resolve(__dirname, 'src/'),
+     '@c': path.resolve(__dirname, 'src/components')
+
    })
 );

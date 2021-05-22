@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import{
   TabBar
 } from "antd-mobile"
+import CookBook from './cookbook/container/Cookbook'
 
 import cookbook from "@assets/images/cookbook.png"
 import cookbookActive from "@assets/images/cookbook-active.png"
@@ -52,10 +53,9 @@ export default class Home extends Component {
                 selectedTab: 'cookbook',
               });
             }}
-            data-seed="logId"
           >
             {/* 位置 */}
-            <div>cookbook</div>
+            <CookBook></CookBook>
 
 
 
