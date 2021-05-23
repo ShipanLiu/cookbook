@@ -1,17 +1,19 @@
-const defaultState = {
-  list: []
-}
+/*
+  this is the main reducer or we can say this main reducer file is the "small" reducers' God
 
-const reducer = (state = defaultState, action) => {
-  switch(action.type) {
-    case 'loadData':
-      return {
-        list: action.list
-      }
+*/
 
-    default:
-      return state
-  }
-}
+import {combineReducers} from 'redux'
 
-export default reducer
+import {
+  reducer as cookbookReducer
+} from '../home/cookbook/index'
+
+
+// combine the 'child' reducers into a main steam reducer
+const rootReducer = combineReducers({
+  // cookbook: cookbook
+  cookbookReducer
+})
+
+export default rootReducer

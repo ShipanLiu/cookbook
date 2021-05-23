@@ -7,12 +7,16 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "antd-mobile": "^2.3.4",
+    "axios": "^0.21.1",
+    "memoize-one": "^5.2.1",
+    "prop-types": "^15.7.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-redux": "^7.2.4",
     "react-scripts": "4.0.3",
     "react-thunk": "^1.0.0",
     "redux": "^4.1.0",
+    "redux-thunk": "^2.3.0",
     "styled-components": "^5.3.0",
     "web-vitals": "^1.0.1"
   },
@@ -20,7 +24,8 @@
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "mock": "json-server ./mock/mock.js -r ./mock/route.json -p 9000 -w"
   },
   "eslintConfig": {
     "extends": [
@@ -41,8 +46,10 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-decorators": "^7.14.2",
     "babel-plugin-import": "^1.13.3",
     "customize-cra": "^1.0.0",
+    "http-proxy-middleware": "^2.0.0",
     "react-app-rewired": "^2.1.8"
   },
   "resolutions": {

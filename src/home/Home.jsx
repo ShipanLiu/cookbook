@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import{
   TabBar
 } from "antd-mobile"
-import CookBook from './cookbook/container/Cookbook'
+import { CookBook } from './cookbook/index'
+import { Category } from './category/ui/index'
 
 import cookbook from "@assets/images/cookbook.png"
 import cookbookActive from "@assets/images/cookbook-active.png"
@@ -18,7 +19,7 @@ import moreActive from "@assets/images/more-active.png"
 export default class Home extends Component {
 
   state = {
-    selectedTab: 'cookbook',
+    selectedTab: 'category',
     hidden: false,
     fullScreen: true,
   }
@@ -86,7 +87,7 @@ export default class Home extends Component {
             }}
             data-seed="logId1"
           >
-            <div>category</div>
+            <Category></Category>
 
 
 

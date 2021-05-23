@@ -4,21 +4,24 @@
   Misrake: 1. ",":  padding: .1rem , .15rem;
            2. without ";"  border: solid 1px  #ee742f
 
+ the Search component has to fit in  different components, with different demands so let us use some variable
+
 */
 
 
 import styled from 'styled-components'
 
 const Container = styled.div `
-  padding: .02rem  .15rem;
+  padding: .1rem  .15rem;
+  background-color: ${props => props.outerbg};
   > div {
     display: flex;
     height: .4rem;
-    border: solid 1px  #ee742f;
+    border: ${(props) => props.hasborder ? 'solid 1px  #ee742f' : '' };
     border-radius: .07rem;
     justify-content: center;
     align-items: center;
-    background-color: #fff;
+    background-color: ${props => props.innerbg};
 
     svg {
       width: .30rem;
