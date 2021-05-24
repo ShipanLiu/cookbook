@@ -1,7 +1,8 @@
 import styled from 'styled-components'
+import border from  '@assets/styled/border'
 
-const MenuWrap = styled.div `
-  border-top: solid 1px #ccc;
+const MenuWrap1 = styled.div `
+  // border-top: solid 1px #ccc;
   overflow: hidden;
   flex: 1;
   display: flex;
@@ -42,7 +43,7 @@ const MenuWrap = styled.div `
     }
   }
 `
-
-export {
+const MenuWrap = border(MenuWrap1)
+export  {
   MenuWrap
 }

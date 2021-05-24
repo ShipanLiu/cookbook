@@ -13,7 +13,9 @@ import PropTypes from 'prop-types'
 export default function MenuList(props) {
   const {cate, curCate, onAsideClick} = props
   return (
-    <MenuWrap>
+    <MenuWrap
+      width="1px 0 0 0"
+    >
       <aside>
         <ul>
           {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Grid } from 'antd-mobile'
 
-import {HotCateWrap} from './StyledCookBook'
+import {HotCateWrap, H1Container} from './StyledCookBook'
 export default class HotCate extends Component {
   state = {
     columnNum: 4,
@@ -72,7 +72,11 @@ export default class HotCate extends Component {
 
     return (
       <HotCateWrap>
-        <h1>popular courses</h1>
+        <H1Container
+          width="0 0 1px 0"
+        >
+        popular courses
+        </H1Container>
         <div>
           <Grid
           data={this.state.hotCateList}

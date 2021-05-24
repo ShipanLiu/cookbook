@@ -27,12 +27,15 @@ const CookBookUI = (props) => {
 
   return (
      <Container>
-        <header>美食大全</header>
+        <header>Asian Food</header>
         <Swiper list={swiperPic(props.list)}></Swiper>
         <Search
           outerbg='#f5f5f5'
           innerbg='#fff'
           hasborder={true}
+
+          radius={0.06}
+          color='#ee742f'
         >
         </Search>
         <HotCate></HotCate>

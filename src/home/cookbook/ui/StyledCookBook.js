@@ -4,6 +4,9 @@
 */
 
 import styled from 'styled-components'
+import border from '@assets/styled/border'
+import ellipsis from '@assets/styled/ellipsis'
+
 
 
 const Container = styled.div `
@@ -11,8 +14,8 @@ const Container = styled.div `
     height: .44rem;
     line-height: .44rem;
     text-align: center;
-    font-size: .16rem;
-    color: #fff;
+    font-size: .3rem;
+    color: gold;
     background-color: #ee742f;
   }
 `
@@ -27,16 +30,18 @@ const SwiperWrap = styled.div `
   }
 
 `
-const HotCateWrap = styled.div `
-  h1 {
+const H1Container = border(
+ styled.h1 `
     height: .5rem;
     line-height: .5rem;
     padding-left: .2rem;
     color: #666;
     font-weight: normal;
     background-color: #fff;
-    border-bottom: solid 1px #ccc
-  }
+`)
+
+
+const HotCateWrap = styled.div `
 
   > div {
     background-color: #fff;
@@ -64,6 +69,13 @@ const HotCateWrap = styled.div `
     }
 }
 `
+
+const ContentEllipsis = ellipsis(
+  styled.p `
+    color: #666;
+`
+)
+
 const Top10Wrap = styled.div `
    h1 {
     height: .5rem;
@@ -97,7 +109,7 @@ const Top10Wrap = styled.div `
           font-size: .18rem;
         }
         > p:last-child {
-          color: #666;
+
 
         }
 
@@ -111,5 +123,7 @@ export {
   Container,
   SwiperWrap,
   HotCateWrap,
-  Top10Wrap
+  Top10Wrap,
+  H1Container,
+  ContentEllipsis
 }

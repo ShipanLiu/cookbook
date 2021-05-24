@@ -1,6 +1,7 @@
 import React from 'react'
 import {
-  Top10Wrap
+  Top10Wrap,
+  ContentEllipsis
 } from './StyledCookBook'
 
 export default function Top10(props) {
@@ -21,7 +22,11 @@ export default function Top10(props) {
                 </div>
                 <div>
                   <p>{imgObj.name}</p>
-                  <p><span>{getRndInteger(5000, 8000)}</span>-viewed &nbsp;<span>{getRndInteger(3000, 5000)}</span>-stars</p>
+                  <ContentEllipsis
+                  lineclamp = {1}
+                  >
+                  <span>{getRndInteger(5000, 8000)}</span>-viewed &nbsp;<span>{getRndInteger(3000, 5000)}</span>-stars
+                  </ContentEllipsis>
                 </div>
               </li>
             )

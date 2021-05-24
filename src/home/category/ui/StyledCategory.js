@@ -1,4 +1,7 @@
 import styled from 'styled-components'
+import border from '@assets/styled/border'
+
+const UlBorder = border(styled.ul ``)
 
 const CategoryWrap = styled.div `
  // 防止整个页面上下动。因为展示的页面是固定的。假如写的页面长了的话。
@@ -17,8 +20,8 @@ const CategoryWrap = styled.div `
       display: flex;
       width: 1.7rem;
       height: .3rem;
-      border: solid 1px #fff;
-      border-radius: .15rem;
+      // border: solid 1px #fff;
+      // border-radius: .15rem;
       li {
         flex: 1;
         line-height: .3rem;
@@ -37,7 +40,7 @@ const CategoryWrap = styled.div `
   }
 `
 
-
 export {
   CategoryWrap,
+  UlBorder
 }
