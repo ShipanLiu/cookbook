@@ -17,7 +17,22 @@ export default class Menu extends Component {
 
   state = {
     cate: null,
-    curCate: '热门'
+    // problem: only run once, and can't be changed later, unless the whole component updates.
+    // because curCate was both  used by father and son components. the value of it must be changed after props and state changed.
+    curCate: this.props.type === 'category' ? '热门' : '肉类',
+    type: 'category'
+  }
+
+  // excellent
+  static getDerivedStateFromProps(nextProps, preState) {
+    if (nextProps.type === preState.type) {
+      return null
+    } else {
+      return {
+        curCate: nextProps.type === 'category' ? '热门' : '肉类',
+        type: nextProps.type
+      }
+    }
   }
 
   async componentDidMount() {
@@ -25,21 +40,23 @@ export default class Menu extends Component {
       url: '/api/category'
     })
     this.setState({
-      cate: result.data.data[this.props.type]
+      cate: result.data.data
     })
-    // console.log(result.data.data);
 
   }
-   handleClick = (value) => {
+  handleAsideClick = (value) => {
     this.setState({
       curCate: value
     })
   }
+
+
   render() {
     return (
         <MenuList
-        cate={this.state.cate}
+        cate={this.state.cate && this.state.cate[this.props.type]}
         curCate={this.state.curCate}
+        onAsideClick = {this.handleAsideClick}
         >
         </MenuList>
     )

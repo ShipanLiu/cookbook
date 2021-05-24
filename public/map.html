@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Hello, World</title>
+<style type="text/css">
+html{height:100%}
+body{height:100%;margin:0px;padding:0px}
+#container{height:100%}
+</style>
+<script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=aA0VZ7fv4tmak3h8SD2gSWM7cLaz5Whq">
+</script>
+</head>
+
+<body>
+<div id="container"></div>
+<script type="text/javascript">
+var map = new BMap.Map("container");
+
+
+map.centerAndZoom(new BMap.Point(51.4818, 7.2162), 15);
+var myGeo = new BMap.Geocoder();
+myGeo.getPoint('bochum', function(point){
+    if (point) {
+        map.centerAndZoom(point, 16);
+        map.addOverlay(new BMap.Marker(point));
+    }
+ },
+);
+</script>
+</body>
+</html>

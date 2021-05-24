@@ -1,17 +1,17 @@
 /*
   we don't have to use redux here.
+  the function of onClick must from father Component, or it won't change any state.
 
 */
 
-import React, {useState} from 'react'
 import {
   MenuWrap
 } from './StyledMenuList'
+import PropTypes from 'prop-types'
 
 
-export default function MenuList({cate, curCate}) {
-  const [curCateValue, setcurCateValue] = useState(curCate)
-
+export default function MenuList(props) {
+  const {cate, curCate, onAsideClick} = props
   return (
     <MenuWrap>
       <aside>
@@ -21,9 +21,9 @@ export default function MenuList({cate, curCate}) {
             .map((value) => {
               return(
                 <li
-                className={value === curCateValue ? 'active' : ''}
+                className={value === curCate ? 'active' : ''}
                 key={value}
-                onClick={() => setcurCateValue(value)}
+                onClick={() => onAsideClick(value)}
                 >
                 <span>{value}</span>
                 </li>
@@ -35,7 +35,7 @@ export default function MenuList({cate, curCate}) {
       <section>
         <ul>
           {
-            cate && cate['category'][curCate].map((value) => {
+           cate && curCate && cate[curCate].map((value) => {
               return(
                 <li key={value}>{value}</li>
               )
@@ -45,5 +45,11 @@ export default function MenuList({cate, curCate}) {
         </ul>
       </section>
     </MenuWrap>
+
   )
+}
+
+MenuList.propTypes = {
+  cate: PropTypes.object,
+  curCate: PropTypes.string
 }

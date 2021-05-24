@@ -4,6 +4,8 @@ import{
 } from "antd-mobile"
 import { CookBook } from './cookbook/index'
 import { Category } from './category/ui/index'
+import Map from './map/Map'
+import { More } from './more/index'
 
 import cookbook from "@assets/images/cookbook.png"
 import cookbookActive from "@assets/images/cookbook-active.png"
@@ -16,10 +18,11 @@ import moreActive from "@assets/images/more-active.png"
 
 
 
+
 export default class Home extends Component {
 
   state = {
-    selectedTab: 'category',
+    selectedTab: 'map',
     hidden: false,
     fullScreen: true,
   }
@@ -56,7 +59,7 @@ export default class Home extends Component {
             }}
           >
             {/* 位置 */}
-            <CookBook></CookBook>
+            {/* <CookBook></CookBook> */}
 
 
 
@@ -76,7 +79,7 @@ export default class Home extends Component {
                 background: `url(${menuActive}) center center /  21px 21px no-repeat` }}
               />
             }
-            title="category"
+            title="Category"
             key="category"
             badge={'new'}
             selected={this.state.selectedTab === 'category'}
@@ -87,7 +90,7 @@ export default class Home extends Component {
             }}
             data-seed="logId1"
           >
-            <Category></Category>
+            {/* <Category></Category> */}
 
 
 
@@ -108,7 +111,7 @@ export default class Home extends Component {
                 background: `url(${locationActive}) center center /  21px 21px no-repeat` }}
               />
             }
-            title="map"
+            title="Map"
             key="map"
             dot
             selected={this.state.selectedTab === 'map'}
@@ -118,7 +121,7 @@ export default class Home extends Component {
               });
             }}
           >
-            <div>map</div>
+            <Map></Map>
 
 
 
@@ -127,7 +130,7 @@ export default class Home extends Component {
           <TabBar.Item
             icon={{ uri: `${more}` }}
             selectedIcon={{ uri: `${moreActive}` }}
-            title="more"
+            title="More"
             key="more"
             selected={this.state.selectedTab === 'more'}
             onPress={() => {
@@ -136,7 +139,7 @@ export default class Home extends Component {
               });
             }}
           >
-            <div>more</div>
+            <More></More>
           </TabBar.Item>
         </TabBar>
       </div>
