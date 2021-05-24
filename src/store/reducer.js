@@ -9,11 +9,13 @@ import {
   reducer as cookbookReducer
 } from '../home/cookbook/index'
 
+import { reducer as homeReducer } from '../home/index'
 
 // combine the 'child' reducers into a main steam reducer
 const rootReducer = combineReducers({
   // cookbook: cookbook
-  cookbookReducer
+  cookbookReducer,
+  homeReducer
 })
 
 export default rootReducer

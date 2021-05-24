@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import{
   TabBar
 } from "antd-mobile"
@@ -17,24 +18,23 @@ import more from "@assets/images/more.png"
 import moreActive from "@assets/images/more-active.png"
 
 
-
-
-export default class Home extends Component {
+// added to props
+@connect(
+  (state) => ({
+    checked: state.homeReducer.checked
+  }),
+)
+class Home extends Component {
 
   state = {
-    selectedTab: 'map',
+    selectedTab: 'cookbook',
     hidden: false,
     fullScreen: true,
   }
+
+
   render() {
-    return (
-       <div style={this.state.fullScreen ? { position: 'fixed', height: '100%', width: '100%', top: 0 } : { height: 400 }}>
-        <TabBar
-          unselectedTintColor="#949494"
-          tintColor="#000"
-          barTintColor="white"
-          hidden={this.state.hidden}
-        >
+    const tabItem = [
           <TabBar.Item
             title="Food"
             key="cookbook"
@@ -59,11 +59,11 @@ export default class Home extends Component {
             }}
           >
             {/* 位置 */}
-            {/* <CookBook></CookBook> */}
+            <CookBook></CookBook>
 
 
 
-          </TabBar.Item>
+          </TabBar.Item>,
           <TabBar.Item
             icon={
               <div style={{
@@ -90,12 +90,12 @@ export default class Home extends Component {
             }}
             data-seed="logId1"
           >
-            {/* <Category></Category> */}
+            <Category></Category>
 
 
 
 
-          </TabBar.Item>
+          </TabBar.Item>,
           <TabBar.Item
             icon={
               <div style={{
@@ -126,7 +126,7 @@ export default class Home extends Component {
 
 
 
-          </TabBar.Item>
+          </TabBar.Item>,
           <TabBar.Item
             icon={{ uri: `${more}` }}
             selectedIcon={{ uri: `${moreActive}` }}
@@ -141,8 +141,25 @@ export default class Home extends Component {
           >
             <More></More>
           </TabBar.Item>
+    ]
+    return (
+       <div style={this.state.fullScreen ? { position: 'fixed', height: '100%', width: '100%', top: 0 } : { height: 400 }}>
+        <TabBar
+          unselectedTintColor="#949494"
+          tintColor="#000"
+          barTintColor="white"
+          hidden={this.state.hidden}
+        >
+          {
+            this.props.checked
+            ? tabItem.map(v => v)
+            : tabItem.filter((v, i) => i !== 2)
+          }
+
         </TabBar>
       </div>
     )
   }
 }
+
+export default Home

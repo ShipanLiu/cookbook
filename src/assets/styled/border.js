@@ -1,3 +1,5 @@
+// 封装一像素边框。
+
 import styled from 'styled-components'
 
 const border = (WrappedComp) => {
@@ -38,7 +40,7 @@ const border = (WrappedComp) => {
         transform: scale(.3333333);
         border-radius: ${ ({radius}) => radius * 3 || 0}rem
       }
-          
+
       transform-origin: 0 0;
     }
   `
