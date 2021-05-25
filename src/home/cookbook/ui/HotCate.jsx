@@ -1,8 +1,14 @@
 import React, { Component } from 'react'
 import { Grid } from 'antd-mobile'
+// import a Hoc : withRouter
+import { withRouter } from 'react-router-dom'
 
 import {HotCateWrap, H1Container} from './StyledCookBook'
-export default class HotCate extends Component {
+
+
+// in this way, we could get the Router in this.props
+@withRouter
+class HotCate extends Component {
   state = {
     columnNum: 4,
     hotCateList: [
@@ -68,6 +74,11 @@ export default class HotCate extends Component {
     }
   }
 
+  handleClick = (dataItem) => {
+    let {history} = this.props
+    history.push('/list', {title: dataItem.title})
+  }
+
   render() {
 
     return (
@@ -90,6 +101,7 @@ export default class HotCate extends Component {
               </div>
             </div>
           )}
+           onClick={this.handleClick}
         />
         </div>
 
@@ -98,3 +110,5 @@ export default class HotCate extends Component {
   }
 
 }
+
+export default HotCate

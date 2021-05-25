@@ -21,7 +21,7 @@ const loadDataSync = (list) => {
 const loadDataAsync = () => {
   return async(dispatch) => {
     let result = await get({
-      url: '/api/list'
+      url: 'http://127.0.0.1:3000/api/list'
     })
     // 返回的数据有两层。这个dispatch一派发， reducer就有了 list 数据了。
     dispatch(loadDataSync(result.data.data))
@@ -29,8 +29,9 @@ const loadDataAsync = () => {
 }
 
 
-
-export {
+const actionCreater = {
   loadDataSync,
   loadDataAsync
 }
+
+export default actionCreater

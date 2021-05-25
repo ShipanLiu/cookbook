@@ -8,11 +8,13 @@
 
 import CookBook from './container/Cookbook'
 import reducer from './reducer'
+import actionCreater from './actionCreater'
 
 
 
 
 export {
   CookBook,
-  reducer
+  reducer,
+  actionCreater
 }

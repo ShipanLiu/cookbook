@@ -6,7 +6,7 @@
 import React, { Component } from 'react'
 import CookBookUI from '../ui/CookBookUI'
 import {connect} from 'react-redux'
-import { loadDataAsync } from "../actionCreater"
+import { actionCreater } from "../index"
 
 
 // connect 的作用就是把 state 和 loadData（） 等加载到props上面。
@@ -22,7 +22,7 @@ import { loadDataAsync } from "../actionCreater"
   },
   (dispatch) => ({
     loadData() {
-      dispatch(loadDataAsync())
+      dispatch(actionCreater.loadDataAsync())
     }
   })
 
@@ -32,6 +32,7 @@ class Cookbook extends Component {
   componentDidMount() {
     // 刚开始结果为空， 因为是异步应该写在  componentDidUpdate 里面
     // console.log(this.props.list);
+    // 数据就自动到 list里面了。
     this.props.loadData()
   }
 

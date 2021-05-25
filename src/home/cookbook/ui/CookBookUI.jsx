@@ -19,7 +19,7 @@ import {
 
 const CookBookUI = (props) => {
   const swiperPic = memoize(list => list.slice(0,5))
-   const hostCatePic = memoize(list => list.slice(5,14))
+   const hostCatePic = memoize(list => list.slice(5,17))
   //  假如 props.list 不进行变化， 就会用缓存的五条数据。
   // const filterSwiper = swiperPic(props.list)
   // first time mount returnsa [], this is a problem

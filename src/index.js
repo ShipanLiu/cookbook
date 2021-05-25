@@ -1,4 +1,5 @@
 import ReactDOM from "react-dom"
+import { BrowserRouter as Router} from "react-router-dom"
 import React from "react"
 import App from "./App"
 import "./assets/styles/reset.css"
@@ -8,8 +9,10 @@ import store from './store/index'
 
 
 ReactDOM.render(
-  <Provider store={store}>
+  <Router>
+    <Provider store={store}>
     <App/>
-  </Provider>,
+    </Provider>
+  </Router>,
   document.getElementById('root')
  )

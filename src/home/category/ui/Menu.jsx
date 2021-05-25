@@ -4,12 +4,13 @@
 */
 
 import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom'
 import MenuList from '@c/menu/MenuList.jsx'
 import {get} from '@/utils/http.js'
 import PropTypes from 'prop-types'
 
-
-export default class Menu extends Component {
+@withRouter
+class Menu extends Component {
   // type was delivered by his father componnet(Category), class组件接传过来的属性好简单。
   static propTypes = {
     type: PropTypes.string
@@ -49,7 +50,10 @@ export default class Menu extends Component {
       curCate: value
     })
   }
-
+  handleGotoList = (title) => {
+    this.props.history.push('/list', {title})
+    // console.log(title);
+  }
 
   render() {
     return (
@@ -57,8 +61,10 @@ export default class Menu extends Component {
         cate={this.state.cate && this.state.cate[this.props.type]}
         curCate={this.state.curCate}
         onAsideClick = {this.handleAsideClick}
+        handleGotoList = {this.handleGotoList}
         >
         </MenuList>
     )
   }
 }
+export default Menu

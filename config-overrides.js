@@ -19,18 +19,18 @@ module.exports = override(
   addWebpackResolve({
     //  引入的时候不用写后缀
     extensions: [".js", ".json", ".jsx"],
-    // 给文件夹起别名, 因为为了达到assets， 路径非常非常难。
+    // way one:
     alias: {
       // assets: path.resolve(__dirname, 'src/assets/')
     }
   }),
 
-  // 给文件夹起别名, 因为为了达到assets， 路径非常非常难。这是第二种方法.
+  // way two
    addWebpackAlias({
      '@assets': path.resolve(__dirname, 'src/assets/'),
      '@': path.resolve(__dirname, 'src/'),
      '@c': path.resolve(__dirname, 'src/components'),
    }),
-   // 装饰器。
+   // Decorators @ fro class Components
    addDecoratorsLegacy()
 );

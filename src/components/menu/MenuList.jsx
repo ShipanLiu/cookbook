@@ -1,6 +1,7 @@
 /*
   we don't have to use redux here.
   the function of onClick must from father Component, or it won't change any state.
+  函数组件不写逻辑。
 
 */
 
@@ -8,10 +9,12 @@ import {
   MenuWrap
 } from './StyledMenuList'
 import PropTypes from 'prop-types'
+// @withRouter can only be used in class component.
 
 
-export default function MenuList(props) {
+function MenuList(props) {
   const {cate, curCate, onAsideClick} = props
+
   return (
     <MenuWrap
       width="1px 0 0 0"
@@ -39,7 +42,12 @@ export default function MenuList(props) {
           {
            cate && curCate && cate[curCate].map((value) => {
               return(
-                <li key={value}>{value}</li>
+                <li
+                 key={value}
+                 onClick={() => props.handleGotoList(value)}
+                >
+                {value}
+                </li>
               )
             })
           }
@@ -55,3 +63,5 @@ MenuList.propTypes = {
   cate: PropTypes.object,
   curCate: PropTypes.string
 }
+
+export default MenuList
