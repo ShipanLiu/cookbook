@@ -14,6 +14,7 @@ import PropTypes from 'prop-types'
 
 function MenuList(props) {
   const {cate, curCate, onAsideClick} = props
+  // console.log(curCate);
 
   return (
     <MenuWrap

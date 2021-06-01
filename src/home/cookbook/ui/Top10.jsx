@@ -16,7 +16,7 @@ export default function Top10(props) {
         {
           props.list.length > 0 && props.list.map((imgObj) => {
             return(
-              <li key={imgObj.id}>
+              <li key={imgObj.id} onClick={props.onGotoDetail(imgObj.name)}>
                 <div>
                   <img src={imgObj.img} alt=" not found" />
                 </div>

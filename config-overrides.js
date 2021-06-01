@@ -30,6 +30,7 @@ module.exports = override(
      '@assets': path.resolve(__dirname, 'src/assets/'),
      '@': path.resolve(__dirname, 'src/'),
      '@c': path.resolve(__dirname, 'src/components'),
+
    }),
    // Decorators @ fro class Components
    addDecoratorsLegacy()

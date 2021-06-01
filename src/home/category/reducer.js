@@ -3,9 +3,9 @@
 const defaultState = {
   routeInfo: {
     // save footbar status
-    selectedTab: '',
+    selectedTab: 'cookbook',
     //Category/ Material
-    cateType: '',
+    cateType: 'category',
     // save  sidebar status
     cateAside: ''
   }
