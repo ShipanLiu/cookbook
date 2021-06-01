@@ -28,7 +28,7 @@ const CookBookUI = (props) => {
   return (
      <Container>
         <header>Asian Food</header>
-        <Swiper list={swiperPic(props.list)}></Swiper>
+        <Swiper list={swiperPic(props.list)} onGotoDetail={props.onGotoDetail}></Swiper>
         <Search
           outerbg='#f5f5f5'
           innerbg='#fff'
@@ -39,7 +39,7 @@ const CookBookUI = (props) => {
         >
         </Search>
         <HotCate></HotCate>
-        <Top10 list={hostCatePic(props.list)}></Top10>
+        <Top10 list={hostCatePic(props.list)} onGotoDetail={props.onGotoDetail}></Top10>
       </Container>
   )
 }

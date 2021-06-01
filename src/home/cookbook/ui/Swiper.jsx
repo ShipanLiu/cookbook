@@ -25,7 +25,7 @@ export default function Swiper(props) {
              //first mount will be a []
              props.list.length > 0 && props.list.map((imgObj) => {
               return(
-                <img key={imgObj.id} src={imgObj.img} alt="not found" />
+                <img onClick={props.onGotoDetail(imgObj.name)} key={imgObj.id} src={imgObj.img} alt="not found" />
               )
              })
            }

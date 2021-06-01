@@ -8,6 +8,8 @@ import React, { Component } from 'react'
 import { NavBar, Icon} from 'antd-mobile';
 import {withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
+import animate from '@/hoc/animate.js'
+
 // actionCreater is a Obj
 import {actionCreater} from '@/home/cookbook/index'
 
@@ -26,11 +28,18 @@ import {TitleBar, UlWrap, ListBorder, H2Ellipsis, Container} from './StyledList'
     }
   })
 )
+@animate
 class List extends Component {
+
+  clickOnGotoDetail = (title) => {
+    this.props.history.push('/detail', { title, from: '/list' })
+  }
 
   handleClickLeft = () => {
     const {history} = this.props
-    history.goBack()
+    // let from = this.props.location.state.from
+    // console.log(from);
+    history.push('/home', {from: '/list'})
   }
 
   componentDidMount() {
@@ -67,6 +76,7 @@ class List extends Component {
                 // because some of my mock data have same keys
                   key={valueObj.id + index}
                   width="0 0 1px 0"
+                  onClick={() => this.clickOnGotoDetail(valueObj.name)}
                   >
                     <div>
                       <img src={valueObj.img} alt="not found" />

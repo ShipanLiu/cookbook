@@ -76,7 +76,7 @@ class HotCate extends Component {
 
   handleClick = (dataItem) => {
     let {history} = this.props
-    history.push('/list', {title: dataItem.title})
+    history.push('/list', {title: dataItem.title, from: '/home'})
   }
 
   render() {
